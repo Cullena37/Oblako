@@ -1,0 +1,56 @@
+# Importa la libreria Flask per la creazione del server web
+from flask import Flask, request, jsonify
+
+# Crea un'app Flask
+app = Flask(__name__)
+
+# Crea un dizionario per archiviare le note
+note_store = {}
+
+# Rotta per ottenere tutte le note
+@app.route('/note', methods=['GET'])
+def get_notes():
+    return jsonify(note_store)
+
+# Rotta per ottenere una nota specifica per ID
+@app.route('/note/<int:id>', methods=['GET'])
+def get_note(id):
+    if id in note_store:
+        return jsonify({id: note_store[id]})
+    else:
+        return "Nota non trovata", 404
+
+# Rotta per creare una nuova nota
+@app.route('/note', methods=['POST'])
+def create_note():
+    data = request.get_json()
+    if 'testo' in data:
+        id = len(note_store) + 1
+        note_store[id] = data['testo']
+        return f"Nota creata con ID: {id}", 201
+    else:
+        return "Richiesta non valida", 400
+
+# Rotta per aggiornare una nota esistente
+@app.route('/note/<int:id>', methods=['PUT'])
+def update_note(id):
+    data = request.get_json()
+    if id in note_store and 'testo' in data:
+        note_store[id] = data['testo']
+        return f"Nota con ID {id} aggiornata", 200
+    else:
+        return "Nota non trovata o richiesta non valida", 404
+
+# Rotta per eliminare una nota
+@app.route('/note/<int:id>', methods=['DELETE'])
+def delete_note(id):
+    if id in note_store:
+        del note_store[id]
+        return "Nota eliminata", 200
+    else:
+        return "Nota non trovata", 404
+
+# Esegui l'app su una porta specifica
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
+

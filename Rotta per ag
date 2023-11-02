@@ -1,18 +1,15 @@
 # Importa la libreria Flask per la creazione del server web
 from flask import Flask, request, jsonify
 
-# Crea un'app Flask
-app = Flask(__name__)
-
-# Crea un dizionario per archiviare le note
-note_store = {}
-
 # Rotta per ottenere tutte le note
 @app.route('/note', methods=['GET'])
 def get_notes():
     return jsonify(note_store)
 
 # Rotta per ottenere una nota specifica per ID
+@app.route('/note/<int:id>', methods=['GET'])
+def get_note(id):
+    if id in note_store:# Rotta per ottenere una nota specifica per ID
 @app.route('/note/<int:id>', methods=['GET'])
 def get_note(id):
     if id in note_store:

@@ -4,6 +4,12 @@ public class EditorVideo {
 
     public static void main(String[] args) {
         // Questo è un editor video molto semplice in Java.
+        // Può essere espanso per includere funimport java.io.File;
+
+public class EditorVideo {
+
+    public static void main(String[] args) {
+        // Questo è un editor video molto semplice in Java.
         // Può essere espanso per includere funzionalità di editing video più avanzate.
 
         // Carica il video di input
@@ -25,4 +31,25 @@ public class EditorVideo {
     public static void saveVideo(File video) {
         // Inserisci qui la logica per salvare il video editato in un file.
     }
-}
+}        editVideo(videoInput);
+
+        // Salva il video editato
+        File videoOutput = new File("video_output.mp4");
+        saveVideo(videoOutput);
+    }
+
+    public static void editVideo(File video) {
+        // Inserisci qui la logica per l'editing del video
+        // Ad esempio, puoi tagliare, unire o modificare il video.
+    }
+
+    public static void saveVideo(File video) {
+        // Inserisci qui la logica per salvare il video editato in un file.
+    }
+}import java.io.File;
+
+public class EditorVideo {
+
+    public static void main(String[] args) {
+        // Questo è un editor video molto semplice in Java.
+        // Può essere espanso per includere fun

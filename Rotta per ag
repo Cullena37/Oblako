@@ -8,18 +8,4 @@ def update_note(id):
         note_store[id] = data['testo']
         return f"Nota con ID {id} aggiornata", 200
     else:
-        return "Nota non trovata o richiesta non valida", 404
-
-# Rotta per eliminare una nota
-@app.route('/note/<int:id>', methods=['DELETE'])
-def delete_note(id):
-    if id in note_store:
-        del note_store[id]
-        return "Nota eliminata", 200
-    else:
-        return "Nota non trovata", 404
-
-# Esegui l'app su una porta specifica
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
-
+        return "Nota non trovata o richiesta non valida", 40

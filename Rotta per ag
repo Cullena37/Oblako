@@ -19,3 +19,37 @@ def update_note(id):
     else:
         return "Nota non trovata o richiesta non valida", 40
 } aggiornata"} aggiornata"
+        return "Nota non trovata o richiesta non valida", 40
+# Rotta per aggiornare una nota esistente
+@app.route('/note/<int:id>', methods=['PUT'])
+def update_note(id):
+    data = request.get_json()
+    if id in note_store and 'testo' in data:
+        note_store[id] = data['testo']
+        return f"Nota con ID {id} aggiornata", 200
+    else:
+        return "Nota non trovata o richiesta non valida", 40
+} aggiornata"} aggiornata"
+        return "Nota non trovata o richiesta non valida", 40
+# Rotta per aggiornare una nota esistente
+@app.route('/note/<int:id>', methods=['PUT'])
+def update_note(id):
+    data = request.get_json()
+    if id in note_store and 'testo' in data:
+        note_store[id] = data['testo']
+        return f"Nota con ID {id} aggiornata", 200
+    else:
+        return "Nota non trovata o richiesta non valida", 40
+} aggiornata"} aggiornata"
+        return "Nota non trovata o richiesta non valida", 40
+# Rotta per aggiornare una nota esistente
+@app.route('/note/<int:id>', methods=['PUT'])
+def update_note(id):
+    data = request.get_json()
+    if id in note_store and 'testo' in data:
+        note_store[id] = data['testo']
+        return f"Nota con ID {id} aggiornata", 200
+    else:
+        return "Nota non trovata o richiesta non valida", 40
+} aggiornata"} aggiornata"
+        return "Nota non trovata o richiesta non valida", 40
